@@ -59,6 +59,29 @@ namespace OefeningenArrays
             {
                 Console.WriteLine($"Getal {i}: {getallen3[i]}");
             }
+            //oefening 5
+            bool[] bools = new bool[30];
+            Random random2 = new Random();
+
+            Console.WriteLine(bools.Length);
+            for (int i = 0; i < bools.Length; i++)
+            {
+                if (random2.Next(0,2) == 0)
+                {
+                    bools[i] = true;
+                }
+                else
+                {
+                    bools[i] = false;
+                }
+                
+            }
+
+            for (int i = 0; i < bools.Length; i++)
+            {
+                Console.WriteLine($"{bools[i]}");
+            }
+
 
             Console.ReadLine();
         }
