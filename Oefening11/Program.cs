@@ -46,8 +46,8 @@ namespace Oefening11
             password += naam[1].ToString().ToLower();
             password += naam[0].ToString().ToUpper();
             password += telefoonnummer.Substring(0,2);
-            int temp = (int)Math.Round(Math.Pow(Convert.ToInt32(postcode[0]), 2));
-            password += temp;
+            int temp = (int)Math.Round(Math.Pow(Convert.ToInt32(postcode.Substring(0,1)), 2));
+            password += Convert.ToString(temp);
 
             return password;
         }

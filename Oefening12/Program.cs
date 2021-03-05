@@ -13,16 +13,10 @@ namespace Oefening12
 
             int[,] puzzeltje = { { 1, 2, 3 },{ 4, 5, 6 },{ 7, 8, 9 },{ 10, 11, 12 }, { 13, 14, 0 } };
             PrintPuzzel(puzzeltje);
-            Move(4, puzzeltje);
-            Console.Clear();
-            Console.ReadLine();
+            Console.WriteLine();
+            AllCheck(puzzeltje);
+            Move(8, puzzeltje);
             PrintPuzzel(puzzeltje);
-            Move(4, puzzeltje);
-            Console.ReadLine();
-            PrintPuzzel(puzzeltje);
-            Move(4, puzzeltje);
-            PrintPuzzel(puzzeltje);
-            Move(4, puzzeltje);
             Console.ReadLine();
         }
         static int InputInt()
@@ -43,19 +37,87 @@ namespace Oefening12
             {
                 // Down
                 case 2:
-                    
+                    if (CheckMove(getal,puzzeltje))
+                    {
+                        for (int i = 0; i < puzzeltje.Length/3; i++)
+                        {
+                            for (int j = 0; j < puzzeltje.Length/5; j++)
+                            {
+                                if (puzzeltje[i,j] == 0)
+                                {
+                                    puzzeltje[i, j] = puzzeltje[i - 1, j];
+                                    puzzeltje[i - 1, j] = 0;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Geen geldige move");
+                    }
                     break;
                 // Left
-                case 4: 
-                    
+                case 4:
+                    if (CheckMove(getal, puzzeltje))
+                    {
+                        for (int i = 0; i < puzzeltje.Length / 3; i++)
+                        {
+                            for (int j = 0; j < puzzeltje.Length / 5; j++)
+                            {
+                                if (puzzeltje[i, j] == 0)
+                                {
+                                    puzzeltje[i, j] = puzzeltje[i - 1, j];
+                                    puzzeltje[i - 1, j] = 0;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Geen geldige move");
+                    }
                     break;
                 // Right
-                case 6: 
-                    
+                case 6:
+                    if (CheckMove(getal, puzzeltje))
+                    {
+                        for (int i = 0; i < puzzeltje.Length / 3; i++)
+                        {
+                            for (int j = 0; j < puzzeltje.Length / 5; j++)
+                            {
+                                if (puzzeltje[i, j] == 0)
+                                {
+                                    puzzeltje[i, j] = puzzeltje[i - 1, j];
+                                    puzzeltje[i - 1, j] = 0;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Geen geldige move");
+                    }
                     break;
                 //Up
                 case 8:
-                    
+                    if (CheckMove(getal, puzzeltje))
+                    {
+                        for (int i = 0; i < puzzeltje.Length / 3; i++)
+                        {
+                            for (int j = 0; j < puzzeltje.Length / 5; j++)
+                            {
+                                if (puzzeltje[i, j] == 0)
+                                {
+                                    puzzeltje[i, j] = puzzeltje[i - 1, j];
+                                    puzzeltje[i - 1, j] = 0;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Geen geldige move");
+                    }
                     break;
                 default:
                     break;
@@ -82,7 +144,7 @@ namespace Oefening12
             }
 
         }
-        static void CheckMove(int getal, int[,] puzzeltje) 
+        static bool CheckMove(int getal, int[,] puzzeltje) 
         {
             for (int i = 0; i < puzzeltje.Length / 3; i++)
             {
@@ -93,26 +155,60 @@ namespace Oefening12
                     {
                         if (getal == 2)
                         {
-                            if (j != 0)
+                            if (i != 4)
                             {
-
+                                return true; 
+                            }
+                            else
+                            {
+                                return false;
                             }
                         }
                         if (getal == 4)
                         {
-
+                            if (j != 0)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
                         }
                         if (getal == 6)
                         {
-
+                            if (j != 2)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
                         }
                         if (getal == 8)
                         {
-
+                            if (i != 0)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
                         }
                     }
                 }
             }
+            return false;
+        }
+        static void AllCheck(int[,] puzzeltje)
+        {
+            Console.WriteLine();
+            Console.WriteLine($"Down: {CheckMove(2, puzzeltje)}");
+            Console.WriteLine($"Left: {CheckMove(4, puzzeltje)}");
+            Console.WriteLine($"Right: {CheckMove(6, puzzeltje)}");
+            Console.WriteLine($"Up: {CheckMove(8, puzzeltje)}");
         }
     }
 }
