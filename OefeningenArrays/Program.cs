@@ -34,7 +34,9 @@ namespace OefeningenArrays
             }
             //oefening 3
             Console.WriteLine();
+            
             char[] alfabet = new char[26];
+
             int startAlfabet = 97;
             for (int i = 0; i < alfabet.Length; i++)
             {
